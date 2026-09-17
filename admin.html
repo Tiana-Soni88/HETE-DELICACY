@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin | Hete Delicacy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">HETE DELICACY ★★★★★</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="admin.html" class="active">Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="admin-container">
+
+    <!-- ============================================
+         LOGIN VIEW (Firebase Email/Password)
+         ============================================ -->
+    <div id="loginBox" class="login-box">
+      <h2>🔐 Admin Access</h2>
+      <p class="hint">Sign in with your admin credentials</p>
+
+      <form id="loginForm">
+        <input
+          type="email"
+          id="adminEmail"
+          placeholder="Email Address"
+          autocomplete="username"
+          required
+        />
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        />
+        <button type="submit" class="btn" style="width:100%;">Login</button>
+      </form>
+
+      <p id="loginError" style="color:var(--error);margin-top:15px;min-height:20px;"></p>
+    </div>
+
+    <!-- ============================================
+         DASHBOARD VIEW
+         ============================================ -->
+    <div id="dashboard" style="display:none;">
+      <div class="admin-header">
+        <h2>📋 All Bookings</h2>
+        <div>
+          <span id="bookingCount" style="color:var(--muted);margin-right:15px;"></span>
+          <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="bookingsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Room</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7" class="empty-msg">Loading bookings...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="admin.html" class="admin-float" title="Admin Access" aria-label="Admin Access">⚙</a>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
