@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin | Hete Delicacy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">HETE DELICACY ★★★★★</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="admin.html" class="active">Admin</a></li>
+    </ul>
+  </nav>
+
+  <div class="admin-container">
+
+    <!-- ============================================
+         LOGIN VIEW (Firebase Email/Password)
+         ============================================ -->
+    <div id="loginBox" class="login-box">
+      <h2>🔐 Admin Access</h2>
+      <p class="hint">Sign in with your admin credentials</p>
+
+      <form id="loginForm">
+        <input
+          type="email"
+          id="adminEmail"
+          placeholder="Email Address"
+          autocomplete="username"
+          required
+        />
+        <input
+          type="password"
+          id="adminPassword"
+          placeholder="Password"
+          autocomplete="current-password"
+          required
+        />
+        <button type="submit" class="btn" style="width:100%;">Login</button>
+      </form>
+
+      <p id="loginError" style="color:var(--error);margin-top:15px;min-height:20px;"></p>
+    </div>
+
+    <!-- ============================================
+         DASHBOARD VIEW (Search + Trash)
+         ============================================ -->
+    <div id="dashboard" style="display:none;">
+
+      <!-- HEADER -->
+      <div class="admin-header">
+        <h2>📋 Bookings Dashboard</h2>
+        <div class="admin-header-actions">
+          <span id="bookingCount" class="count-badge"></span>
+          <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+      </div>
+
+      <!-- TOOLBAR: SEARCH + TABS -->
+      <div class="admin-toolbar">
+        <div class="search-wrap">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search by name, email, phone, room..."
+            autocomplete="off"
+          />
+          <button id="clearSearch" class="clear-search" title="Clear search">✕</button>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="active">
+            📋 Active <span class="tab-count" id="activeCount">0</span>
+          </button>
+          <button class="tab" data-tab="trash">
+            🗑️ Trash <span class="tab-count" id="trashCount">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-wrap">
+        <table id="bookingsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Room</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th id="actionHeader">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7" class="empty-msg">Loading bookings...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div id="emptyState" class="empty-state" style="display:none;">
+        <p id="emptyMessage">No bookings found.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Hidden Floating Admin Button — omitted on this page -->
+  <!-- <a href="admin.html" class="admin-float" title="Admin Access" aria-label="Admin Access">⚙</a> -->
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
